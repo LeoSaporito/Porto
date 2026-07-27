@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Grid Square
+  - Laser
   layers:
   - Default
   - TransparentFX
