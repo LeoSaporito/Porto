@@ -16,7 +16,7 @@ public class GridSquare : MonoBehaviour
         x += xOffset;
         y += yOffset;
 
-        transform.position = new Vector2(x, y);
+        transform.position = new Vector3(x, y, -1);
     }
     public void SetPlayerGridSpacing(float xSpacing, float xOffset, float yPos)
     {
@@ -26,7 +26,7 @@ public class GridSquare : MonoBehaviour
 
         x += xOffset;
 
-        transform.position = new Vector2(x, yPos);
+        transform.position = new Vector3(x, yPos, 1);
     }
 
     public void SetXPosition(int x)
