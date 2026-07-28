@@ -34,7 +34,7 @@ public class MirrorCollision : MonoBehaviour
             case (1, 0): _laserMovement.MoveUp(); break;
         }
 
-        _laserMovement.SetPositionToMirror(this.gameObject);
+        //_laserMovement.SetPositionToMirror(this.gameObject);
     }
 
     private void TopLeftToBottomRightDirectionCheck(LaserMovement _laserMovement)
@@ -49,7 +49,7 @@ public class MirrorCollision : MonoBehaviour
             case (1, 0): _laserMovement.MoveDown(); break;
         }
 
-        _laserMovement.SetPositionToMirror(this.gameObject);
+        //_laserMovement.SetPositionToMirror(this.gameObject);
     }
 }
 

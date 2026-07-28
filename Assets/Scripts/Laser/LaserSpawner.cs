@@ -3,8 +3,15 @@ using UnityEngine;
 public class LaserSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _laserPrefab;
+    [SerializeField] private GameObject _player;
+
+    [SerializeField] private LineRendererManager _lineRendererManager;
     public void ShootLaser()
     {
-        GameObject _laserObj = Instantiate(_laserPrefab, transform.position, Quaternion.identity, transform.parent);
+        _lineRendererManager.ShootLaser();
     }
+    //public void ShootLaser()
+    //{
+    //    GameObject _laserObj = Instantiate(_laserPrefab, _player.transform.position, Quaternion.identity, transform.parent);
+    //}
 }

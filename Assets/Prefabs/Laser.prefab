@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8921957993687834881}
   - component: {fileID: 7767543419756104934}
-  - component: {fileID: 8436307008674733900}
   - component: {fileID: 3210785673996949244}
+  - component: {fileID: 6017971706292978744}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Laser
@@ -93,7 +93,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &8436307008674733900
+--- !u!114 &3210785673996949244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4944858633332691288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4cb7a3d8948b14aab718ce4344d57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LaserMovement
+  _position: {x: 0, y: 0}
+  _moveSpeed: 200
+  _direction: {x: 0, y: 0}
+--- !u!61 &6017971706292978744
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +142,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.000806123, y: -0.003422141}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -137,20 +152,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.48330933, y: 3.9849718}
+  m_Size: {x: 0.34, y: 3.84}
   m_EdgeRadius: 0
---- !u!114 &3210785673996949244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4944858633332691288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4cb7a3d8948b14aab718ce4344d57e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LaserMovement
-  _position: {x: 0, y: 0}
-  _moveSpeed: 200
-  _direction: {x: 0, y: 0}

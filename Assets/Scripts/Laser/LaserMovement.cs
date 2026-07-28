@@ -10,7 +10,7 @@ public class LaserMovement : MonoBehaviour
     {
         _direction = new Vector2(0, 1);
     }
-    private void Update()
+    private void FixedUpdate()
     {
         Movement();
     }
