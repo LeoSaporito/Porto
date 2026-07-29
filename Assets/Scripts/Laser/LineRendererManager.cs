@@ -8,29 +8,33 @@ public class LineRendererManager : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
 
     [SerializeField] public Vector3 _spawnPosition;
-    [SerializeField] public float _topPoint;
-    [SerializeField] public float _bottomPoint;
 
-    [SerializeField] private Transform _pointsPrefab;
-    [SerializeField] public List<Transform> _pointsList = new List<Transform>();
+    [SerializeField] private GameObject _pointsPrefab;
+    [SerializeField] public List<GameObject> _pointsList = new List<GameObject>();
     [SerializeField] private LineRenderer _lineRenderer;
 
+    [SerializeField] private float _frontDelay;
+    [SerializeField] private float _rearDelay;
     private void Start()
     {
         _lineRenderer = GetComponent<LineRenderer>();
     }
-
     public void SpawnLaser()
     {
-        _pointsList.Add(_pointsPrefab);
+        AddPoint(_frontDelay);
+        AddPoint(_rearDelay);
     }
-    private void PointsSpawnPosition(Vector3 _playerPosition, LineRenderer _lineRenderer)
+    private void AddPoint(float _delay)
     {
-        _spawnPosition = _playerPosition;
-        _lineRenderer.positionCount = 2;
+        _spawnPosition = _playerMovement.transform.position;
 
-        _lineRenderer.SetPosition(0, new Vector3(_spawnPosition.x, _spawnPosition.y + _topPoint, _spawnPosition.z));
-        _lineRenderer.SetPosition(1, new Vector3(_spawnPosition.x, _spawnPosition.y + _bottomPoint, _spawnPosition.z));
+        GameObject _pointSpawned = Instantiate(_pointsPrefab, new Vector2(_spawnPosition.x, _spawnPosition.y), Quaternion.identity, transform);
+
+        _pointsList.Add(_pointSpawned);
+        
+        LineRendererMovement _lineRendererMovement = _pointSpawned.GetComponent<LineRendererMovement>();
+
+        _lineRendererMovement.DelayPoint(_delay);        
     }
     private void Update()
     {
@@ -38,7 +42,7 @@ public class LineRendererManager : MonoBehaviour
 
         for (int i = 0; i < _pointsList.Count; i++)
         {
-            _lineRenderer.SetPosition(i, _pointsList[i].position);
+            _lineRenderer.SetPosition(i, _pointsList[i].transform.position);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MirrorCollision : MonoBehaviour
@@ -8,20 +9,27 @@ public class MirrorCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Laser"))
         {
-            LineRendererMovement _lineRendererMovement = collision.gameObject.GetComponent<LineRendererMovement>();
+            GameObject _hitObj = collision.gameObject;
+            LineRendererMovement _lineRendererMovement = _hitObj.GetComponent<LineRendererMovement>();
 
-            Vector2 _laserDirection = _lineRendererMovement.GetDirection();
-
-            switch (this._angleType)
-            {
-                case "Top/Right : Bottom/Left": TopRightToBottomLeftDirectionCheck(_lineRendererMovement); break;
-                case "Top/Left : Bottom/Right": TopLeftToBottomRightDirectionCheck(_lineRendererMovement); break;
-            };
-
-            print("hit");
+            ChangeDirection(_lineRendererMovement);
+            AddPoint();
         }
     }
+    private void AddPoint()
+    {
+        //when the front point collides against the mirror
+        //spawn new point at the point of contact
+    }
 
+    private void ChangeDirection(LineRendererMovement _lineRendererMovement)
+    {
+        switch (this._angleType)
+        {
+            case "Top/Right : Bottom/Left": TopRightToBottomLeftDirectionCheck(_lineRendererMovement); break;
+            case "Top/Left : Bottom/Right": TopLeftToBottomRightDirectionCheck(_lineRendererMovement); break;
+        }        
+    }
     private void TopRightToBottomLeftDirectionCheck(LineRendererMovement _lineRendererMovement)
     {
         Vector2 _laserDirection = _lineRendererMovement.GetDirection();
@@ -33,10 +41,7 @@ public class MirrorCollision : MonoBehaviour
             case (-1, 0): _lineRendererMovement.MoveDown(); break;
             case (1, 0): _lineRendererMovement.MoveUp(); break;
         }
-
-        //_laserMovement.SetPositionToMirror(this.gameObject);
     }
-
     private void TopLeftToBottomRightDirectionCheck(LineRendererMovement _lineRendererMovement)
     {
         Vector2 _laserDirection = _lineRendererMovement.GetDirection();
@@ -48,8 +53,6 @@ public class MirrorCollision : MonoBehaviour
             case (-1, 0): _lineRendererMovement.MoveUp(); break;
             case (1, 0): _lineRendererMovement.MoveDown(); break;
         }
-
-        //_laserMovement.SetPositionToMirror(this.gameObject);
     }
 }
 

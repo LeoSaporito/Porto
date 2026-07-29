@@ -182,11 +182,13 @@ MonoBehaviour:
   _lineRendererPrefab: {fileID: 5102487935687014720, guid: 886098afcee28614da3bd86d484d2da4, type: 3}
   _playerMovement: {fileID: 710181762}
   _spawnPosition: {x: 0, y: 0, z: 0}
-  _topPoint: 2.5
-  _bottomPoint: -1
-  _pointsPrefab: {fileID: 118323878107785334, guid: 74fb388594e96cd4aba9c327c3553c15, type: 3}
+  _topPoint: 0
+  _bottomPoint: 0
+  _pointsPrefab: {fileID: 7344752987053442058, guid: 74fb388594e96cd4aba9c327c3553c15, type: 3}
   _pointsList: []
-  _lineRenderer: {fileID: 0}
+  _lineRenderer: {fileID: 404293103}
+  _frontDelay: 0
+  _rearDelay: 0.1
 --- !u!120 &404293103
 LineRenderer:
   serializedVersion: 3

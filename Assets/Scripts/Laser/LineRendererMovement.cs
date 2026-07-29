@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LineRendererMovement : MonoBehaviour
@@ -6,22 +7,26 @@ public class LineRendererMovement : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Vector2 _direction;
 
-    [SerializeField] private LineRenderer _lineRenderer;
-    [SerializeField] private Vector3 _frontPoint;
-    [SerializeField] private Vector3 _rearPoint;
+    [SerializeField] private bool _isMoving;    
 
     private void Start()
     {
-        _lineRenderer = GetComponent<LineRenderer>();
-
-        _frontPoint = _lineRenderer.GetPosition(0);
-        _rearPoint = _lineRenderer.GetPosition(1);        
-
+        _isMoving = false;
         _direction = new Vector2(0, 1);
     }
     private void FixedUpdate()
     {
-        MoveLineRendererPoints();
+        if (!_isMoving) { return; }
+        else
+        {
+            MoveLineRendererPoints();
+        }
+    }
+    private void MoveLineRendererPoints()
+    {
+        Vector3 _position = transform.position;
+        _position += (Vector3)_direction * _moveSpeed * Time.deltaTime;
+        transform.position = _position;
     }
     public void MoveUp()
     {
@@ -47,12 +52,16 @@ public class LineRendererMovement : MonoBehaviour
     {
         return _direction;
     }
-    private void MoveLineRendererPoints()
+    public void DelayPoint(float _delay)
     {
-        _frontPoint += (Vector3)_direction * _moveSpeed * Time.deltaTime;
-        _rearPoint += (Vector3)_direction * _moveSpeed * Time.deltaTime;
-
-        _lineRenderer.SetPosition(0, _frontPoint);
-        _lineRenderer.SetPosition(1, _rearPoint);
+        Invoke("MovePoint", _delay);
+    }
+    public void MovePoint()
+    {
+        _isMoving = true;
+    }
+    public void StopPoint()
+    {
+        _isMoving = false;
     }
 }
