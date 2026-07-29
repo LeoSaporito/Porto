@@ -5,7 +5,7 @@ using UnityEngine.Windows;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private ClickingManager _clickingManager;
-    [SerializeField] private LaserSpawner _laserSpawner;
+    [SerializeField] private LineRendererManager _lineRendererManager;
 
     [SerializeField] public Vector2 _directionalInput;
     public void OnLeftClick(InputAction.CallbackContext context)
@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
     {
         if (context.canceled)
         {
-            _laserSpawner.ShootLaser();
+            _lineRendererManager.SpawnLaser();
         }
     }
     public void OnMove(InputAction.CallbackContext context)

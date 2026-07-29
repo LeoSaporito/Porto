@@ -7,7 +7,9 @@ public class LaserLineRenderer : MonoBehaviour
     //[SerializeField] private List<Transform> _pointsTransform = new List<Transform>();
 
     [SerializeField] private LineRenderer _lineRenderer;
-    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] public Vector3 _spawnPosition;
+    [SerializeField] public float _topPoint;
+    [SerializeField] public float _bottomPoint;
 
     private void Start()
     {
@@ -15,14 +17,7 @@ public class LaserLineRenderer : MonoBehaviour
 
         _lineRenderer.positionCount = 2;
 
-        Vector3 _frontOfLaser = _lineRenderer.GetPosition(0);
-        Vector3 _backOfLaser = _lineRenderer.GetPosition(1);
-        Vector3 _playerPosition = _playerMovement.transform.position;
-
-        _frontOfLaser.x = _playerPosition.x;
-        _frontOfLaser.y = _playerPosition.y;
-
-        _backOfLaser.x = _playerPosition.x;
-        _backOfLaser.y = _playerPosition.y;
+        _lineRenderer.SetPosition(0, new Vector3(_spawnPosition.x, _spawnPosition.y + _topPoint, _spawnPosition.z));
+        _lineRenderer.SetPosition(1, new Vector3(_spawnPosition.x, _spawnPosition.y + _bottomPoint, _spawnPosition.z));
     }
 }

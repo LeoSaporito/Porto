@@ -8,51 +8,100 @@ public class MirrorCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Laser"))
         {
-            LaserMovement _laserMovement = collision.gameObject.GetComponent<LaserMovement>();
+            LineRendererMovement _lineRendererMovement = collision.gameObject.GetComponent<LineRendererMovement>();
 
-            Vector2 _laserDirection = _laserMovement.GetDirection();
+            Vector2 _laserDirection = _lineRendererMovement.GetDirection();
 
             switch (this._angleType)
             {
-                case "Top/Right : Bottom/Left": TopRightToBottomLeftDirectionCheck(_laserMovement); break;
-                case "Top/Left : Bottom/Right": TopLeftToBottomRightDirectionCheck(_laserMovement); break;
+                case "Top/Right : Bottom/Left": TopRightToBottomLeftDirectionCheck(_lineRendererMovement); break;
+                case "Top/Left : Bottom/Right": TopLeftToBottomRightDirectionCheck(_lineRendererMovement); break;
             };
 
             print("hit");
         }
     }
 
-    private void TopRightToBottomLeftDirectionCheck(LaserMovement _laserMovement)
+    private void TopRightToBottomLeftDirectionCheck(LineRendererMovement _lineRendererMovement)
     {
-        Vector2 _laserDirection = _laserMovement.GetDirection();
+        Vector2 _laserDirection = _lineRendererMovement.GetDirection();
 
         switch (_laserDirection.x, _laserDirection.y)
         {
-            case (0, 1): _laserMovement.MoveRight(); break;
-            case (0, -1): _laserMovement.MoveLeft(); break;
-            case (-1, 0): _laserMovement.MoveDown(); break;
-            case (1, 0): _laserMovement.MoveUp(); break;
+            case (0, 1): _lineRendererMovement.MoveRight(); break;
+            case (0, -1): _lineRendererMovement.MoveLeft(); break;
+            case (-1, 0): _lineRendererMovement.MoveDown(); break;
+            case (1, 0): _lineRendererMovement.MoveUp(); break;
         }
 
         //_laserMovement.SetPositionToMirror(this.gameObject);
     }
 
-    private void TopLeftToBottomRightDirectionCheck(LaserMovement _laserMovement)
+    private void TopLeftToBottomRightDirectionCheck(LineRendererMovement _lineRendererMovement)
     {
-        Vector2 _laserDirection = _laserMovement.GetDirection();
+        Vector2 _laserDirection = _lineRendererMovement.GetDirection();
 
         switch (_laserDirection.x, _laserDirection.y)
         {
-            case (0, 1): _laserMovement.MoveLeft(); break;
-            case (0, -1): _laserMovement.MoveRight(); break;
-            case (-1, 0): _laserMovement.MoveUp(); break;
-            case (1, 0): _laserMovement.MoveDown(); break;
+            case (0, 1): _lineRendererMovement.MoveLeft(); break;
+            case (0, -1): _lineRendererMovement.MoveRight(); break;
+            case (-1, 0): _lineRendererMovement.MoveUp(); break;
+            case (1, 0): _lineRendererMovement.MoveDown(); break;
         }
 
         //_laserMovement.SetPositionToMirror(this.gameObject);
     }
 }
 
+//private void OnCollisionEnter2D(Collision2D collision)
+//{
+//    if (collision.gameObject.CompareTag("Laser"))
+//    {
+//        LaserMovement _laserMovement = collision.gameObject.GetComponent<LaserMovement>();
+
+//        Vector2 _laserDirection = _laserMovement.GetDirection();
+
+//        switch (this._angleType)
+//        {
+//            case "Top/Right : Bottom/Left": TopRightToBottomLeftDirectionCheck(_laserMovement); break;
+//            case "Top/Left : Bottom/Right": TopLeftToBottomRightDirectionCheck(_laserMovement); break;
+//        }
+//        ;
+
+//        print("hit");
+//    }
+//}
+
+//private void TopRightToBottomLeftDirectionCheck(LaserMovement _laserMovement)
+//{
+//    Vector2 _laserDirection = _laserMovement.GetDirection();
+
+//    switch (_laserDirection.x, _laserDirection.y)
+//    {
+//        case (0, 1): _laserMovement.MoveRight(); break;
+//        case (0, -1): _laserMovement.MoveLeft(); break;
+//        case (-1, 0): _laserMovement.MoveDown(); break;
+//        case (1, 0): _laserMovement.MoveUp(); break;
+//    }
+
+//    //_laserMovement.SetPositionToMirror(this.gameObject);
+//}
+
+//private void TopLeftToBottomRightDirectionCheck(LaserMovement _laserMovement)
+//{
+//    Vector2 _laserDirection = _laserMovement.GetDirection();
+
+//    switch (_laserDirection.x, _laserDirection.y)
+//    {
+//        case (0, 1): _laserMovement.MoveLeft(); break;
+//        case (0, -1): _laserMovement.MoveRight(); break;
+//        case (-1, 0): _laserMovement.MoveUp(); break;
+//        case (1, 0): _laserMovement.MoveDown(); break;
+//    }
+
+//    //_laserMovement.SetPositionToMirror(this.gameObject);
+//}
+//-----------------------------------------------------------------------------------------------------------------------------//
 //LaserMovement _laserMovement = collision.gameObject.GetComponent<LaserMovement>();
 
 ////when laser hits the mirror:
