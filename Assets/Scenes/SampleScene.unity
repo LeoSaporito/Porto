@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 404293101}
   - component: {fileID: 404293103}
   - component: {fileID: 404293102}
+  - component: {fileID: 404293104}
   m_Layer: 0
   m_Name: Line Renderer Manager
   m_TagString: Untagged
@@ -179,16 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78f808f9b6bf304a896480730cfb609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineRendererManager
-  _lineRendererPrefab: {fileID: 5102487935687014720, guid: 886098afcee28614da3bd86d484d2da4, type: 3}
-  _playerMovement: {fileID: 710181762}
-  _spawnPosition: {x: 0, y: 0, z: 0}
-  _topPoint: 0
-  _bottomPoint: 0
-  _pointsPrefab: {fileID: 7344752987053442058, guid: 74fb388594e96cd4aba9c327c3553c15, type: 3}
-  _pointsList: []
-  _lineRenderer: {fileID: 404293103}
-  _frontDelay: 0
-  _rearDelay: 0.1
+  _pointsSpawner: {fileID: 0}
 --- !u!120 &404293103
 LineRenderer:
   serializedVersion: 3
@@ -297,6 +289,25 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &404293104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404293098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b5ddf19ab93fa4999da7effdfbfcd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsSpawner
+  _playerMovement: {fileID: 710181762}
+  _spawnPosition: {x: 0, y: 0, z: 0}
+  _pointsPrefab: {fileID: 7344752987053442058, guid: 74fb388594e96cd4aba9c327c3553c15, type: 3}
+  _pointsList: []
+  _lineRenderer: {fileID: 0}
+  _frontDelay: 0
+  _rearDelay: 0.05
 --- !u!1 &430659855
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +792,6 @@ GameObject:
   m_Component:
   - component: {fileID: 710181754}
   - component: {fileID: 710181753}
-  - component: {fileID: 710181760}
   - component: {fileID: 710181761}
   - component: {fileID: 710181762}
   - component: {fileID: 710181763}
@@ -866,52 +876,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &710181760
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710181752}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.1666667, y: 5.3333335}
-    newSize: {x: 2.375, y: 4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 7, y: 7}
-  m_EdgeRadius: 0
 --- !u!114 &710181761
 MonoBehaviour:
   m_ObjectHideFlags: 0

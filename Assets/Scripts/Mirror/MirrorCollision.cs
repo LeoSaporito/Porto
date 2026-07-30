@@ -1,58 +1,13 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MirrorCollision : MonoBehaviour
 {
     [SerializeField] private string _angleType;
-    [SerializeField] private BoxCollider2D _boxCollider;
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Laser"))
-        {
-            GameObject _hitObj = collision.gameObject;
-            LineRendererMovement _lineRendererMovement = _hitObj.GetComponent<LineRendererMovement>();
 
-            ChangeDirection(_lineRendererMovement);
-            AddPoint();
-        }
-    }
-    private void AddPoint()
+    public string GetAngleType()
     {
-        //when the front point collides against the mirror
-        //spawn new point at the point of contact
-    }
-
-    private void ChangeDirection(LineRendererMovement _lineRendererMovement)
-    {
-        switch (this._angleType)
-        {
-            case "Top/Right : Bottom/Left": TopRightToBottomLeftDirectionCheck(_lineRendererMovement); break;
-            case "Top/Left : Bottom/Right": TopLeftToBottomRightDirectionCheck(_lineRendererMovement); break;
-        }        
-    }
-    private void TopRightToBottomLeftDirectionCheck(LineRendererMovement _lineRendererMovement)
-    {
-        Vector2 _laserDirection = _lineRendererMovement.GetDirection();
-
-        switch (_laserDirection.x, _laserDirection.y)
-        {
-            case (0, 1): _lineRendererMovement.MoveRight(); break;
-            case (0, -1): _lineRendererMovement.MoveLeft(); break;
-            case (-1, 0): _lineRendererMovement.MoveDown(); break;
-            case (1, 0): _lineRendererMovement.MoveUp(); break;
-        }
-    }
-    private void TopLeftToBottomRightDirectionCheck(LineRendererMovement _lineRendererMovement)
-    {
-        Vector2 _laserDirection = _lineRendererMovement.GetDirection();
-
-        switch (_laserDirection.x, _laserDirection.y)
-        {
-            case (0, 1): _lineRendererMovement.MoveLeft(); break;
-            case (0, -1): _lineRendererMovement.MoveRight(); break;
-            case (-1, 0): _lineRendererMovement.MoveUp(); break;
-            case (1, 0): _lineRendererMovement.MoveDown(); break;
-        }
+        return _angleType;
     }
 }
 

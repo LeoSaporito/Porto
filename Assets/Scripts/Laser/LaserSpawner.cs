@@ -8,7 +8,7 @@ public class LaserSpawner : MonoBehaviour
     [SerializeField] private LineRendererManager _lineRendererManager;
     public void ShootLaser()
     {
-        _lineRendererManager.SpawnLaser();
+        //_lineRendererManager.SpawnLaser();
     }
     //public void ShootLaser()
     //{

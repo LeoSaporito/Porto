@@ -9,8 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 118323878107785334}
-  - component: {fileID: 2188015243337006356}
-  - component: {fileID: -1288380598513586225}
+  - component: {fileID: 4081617047494246704}
+  - component: {fileID: -5399333366429169508}
+  - component: {fileID: -69740241623994679}
+  - component: {fileID: -3702100693771008890}
+  - component: {fileID: -3435663281317396701}
+  - component: {fileID: -5157082235297577}
   m_Layer: 0
   m_Name: Points
   m_TagString: Laser
@@ -33,23 +37,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2188015243337006356
-MonoBehaviour:
+--- !u!50 &4081617047494246704
+Rigidbody2D:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7344752987053442058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7155267ce67884d4a969627baa405a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LineRendererMovement
-  _position: {x: 0, y: 0}
-  _moveSpeed: 100
-  _direction: {x: 0, y: 0}
---- !u!61 &-1288380598513586225
-BoxCollider2D:
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!58 &-5399333366429169508
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,14 +99,60 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.25, y: 0.25}
-  m_EdgeRadius: 0
+  m_Radius: 0.25
+--- !u!114 &-69740241623994679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344752987053442058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2af91226b653c489f3421794b59e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsMovement
+  _position: {x: 0, y: 0}
+  _moveSpeed: 300
+  _direction: {x: 0, y: 0}
+  _isMoving: 0
+--- !u!114 &-3702100693771008890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344752987053442058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f38381ec523bb4697a58034f1961b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsDirection
+  _pointsMovement: {fileID: 0}
+--- !u!114 &-3435663281317396701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344752987053442058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebed10257897bcb4e970cbddbb804b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsCollision
+  _pointsSpawner: {fileID: 0}
+  _frontPointOfContact: {x: 0, y: 0}
+--- !u!114 &-5157082235297577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344752987053442058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150178f0f7eb2d94fb5dbf5060492d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsData
+  _pointIndex: 

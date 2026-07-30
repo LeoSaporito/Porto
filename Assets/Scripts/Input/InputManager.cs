@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
     {
         if (context.canceled)
         {
-            _lineRendererManager.SpawnLaser();
+            _lineRendererManager.FireLaser();
         }
     }
     public void OnMove(InputAction.CallbackContext context)

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grid Square
   - Laser
+  - Mirror
   layers:
   - Default
   - TransparentFX

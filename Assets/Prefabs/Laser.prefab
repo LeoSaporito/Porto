@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaserMovement
   _position: {x: 0, y: 0}
-  _moveSpeed: 200
+  _moveSpeed: 500
   _direction: {x: 0, y: 0}
 --- !u!61 &6017971706292978744
 BoxCollider2D:
