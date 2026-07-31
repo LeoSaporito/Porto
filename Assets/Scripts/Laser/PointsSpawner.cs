@@ -3,32 +3,13 @@ using UnityEngine;
 
 public class PointsSpawner : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement _playerMovement;
-
-    [SerializeField] public Vector3 _spawnPosition;
-
-    [SerializeField] private GameObject _pointsPrefab;
-    [SerializeField] public List<GameObject> _pointsList = new List<GameObject>();
-    [SerializeField] private LineRenderer _lineRenderer;
-
-    [SerializeField] private float _frontDelay;
-    [SerializeField] private float _rearDelay;
-    private void Start()
+    [SerializeField] private GameObject _pointsPrefab;    
+    [SerializeField] private LineRendererManager _lineRendererManager;
+    public void SpawnPoint(float _delay, string _pointIndex, Vector3 _spawnPoint)
     {
-        _lineRenderer = GetComponent<LineRenderer>();
-    }
-    public void SpawnLaser()
-    {
-        SpawnPoint(_frontDelay, "front");
-        SpawnPoint(_rearDelay, "rear");
-    }
-    public void SpawnPoint(float _delay, string _pointIndex)
-    {
-        Vector3 _spawnPoint = _playerMovement.transform.position;
-
         GameObject _pointSpawned = Instantiate(_pointsPrefab, _spawnPoint, Quaternion.identity, transform);
-        
-        _pointsList.Add(_pointSpawned);
+
+        GetPointsList().Add(_pointSpawned);
 
         PointsMovement _pointMovement = _pointSpawned.GetComponent<PointsMovement>();
         _pointMovement.DelayPoint(_delay);
@@ -36,23 +17,14 @@ public class PointsSpawner : MonoBehaviour
         PointsData _pointData = _pointSpawned.GetComponent<PointsData>();
         _pointData._pointIndex = _pointIndex;
 
-        PointsCollision _pointCollision = _pointSpawned.GetComponent<PointsCollision>();
-        _pointCollision.InitalizePointsSpawner(this);
-    }
-    private void Update()
-    {
-        _lineRenderer.positionCount = _pointsList.Count;
-
-        for (int i = 0; i < _pointsList.Count; i++)
-        {
-            _lineRenderer.SetPosition(i, _pointsList[i].transform.position);
-        }
+        CollisionManager _collisionManager = _pointSpawned.GetComponent<CollisionManager>();
+        _collisionManager.InitalizePointsSpawner(this);
     }
     public void SpawnNewPoint(Vector3 _spawnPoint)
     {
         GameObject _pointSpawned = Instantiate(_pointsPrefab, _spawnPoint, Quaternion.identity, transform);
 
-        _pointsList.Insert(1, _pointSpawned);
+        GetPointsList().Insert(1, _pointSpawned);
 
         PointsMovement _pointMovement = _pointSpawned.GetComponent<PointsMovement>();
         _pointMovement.StopPoint();
@@ -62,12 +34,27 @@ public class PointsSpawner : MonoBehaviour
     }
     public void DestroyPoint(GameObject _obj)
     {
-        _pointsList.Remove(_obj);
+        GetPointsList().Remove(_obj);
         Destroy(_obj);
     }
     public void DestroyVertex()
     {
-        GameObject _vertex = _pointsList[_pointsList.Count - 2];
+        GameObject _vertex = GetPointsList()[GetPointsList().Count - 2];
         DestroyPoint(_vertex);
+    }
+    public void DestroyAllPoints()
+    {
+        for (int i = GetPointsList().Count - 1; i >= 0; i--)
+        {
+            DestroyPoint(GetPointsList()[i]);
+        }
+    }
+    public void DestroyLineRenderer()
+    {
+        _lineRendererManager.DestroyLineRenderer();
+    }
+    private List<GameObject> GetPointsList()
+    {
+        return _lineRendererManager._pointsList;
     }
 }

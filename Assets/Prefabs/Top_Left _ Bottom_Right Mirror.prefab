@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 42539527776831132}
   - component: {fileID: 5266034874838508776}
   - component: {fileID: -3669631292813061159}
-  - component: {fileID: 7276499790430579153}
   - component: {fileID: 401809521692352853}
+  - component: {fileID: 744923233313281650}
   m_Layer: 0
   m_Name: Top_Left _ Bottom_Right Mirror
   m_TagString: Mirror
@@ -121,19 +121,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7276499790430579153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8052583857294562917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0518886c0a0d65d438d379f260d1ae6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MirrorCollision
-  _angleType: 'Top/Left : Bottom/Right'
 --- !u!60 &401809521692352853
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -187,3 +174,16 @@ PolygonCollider2D:
       - {x: 4, y: 3.5}
       - {x: 4, y: 4}
   m_UseDelaunayMesh: 1
+--- !u!114 &744923233313281650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052583857294562917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c76381a5abb934f99697890d6db037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MirrorData
+  _angleType: 'Top/Left : Bottom/Right'

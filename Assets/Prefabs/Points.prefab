@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 118323878107785334}
-  - component: {fileID: 4081617047494246704}
-  - component: {fileID: -5399333366429169508}
+  - component: {fileID: 727311072369770186}
+  - component: {fileID: 8608878682972056634}
+  - component: {fileID: 7701698097448152051}
   - component: {fileID: -69740241623994679}
   - component: {fileID: -3702100693771008890}
-  - component: {fileID: -3435663281317396701}
   - component: {fileID: -5157082235297577}
+  - component: {fileID: 2717237247527721089}
+  - component: {fileID: 3027174105455028622}
   m_Layer: 0
   m_Name: Points
   m_TagString: Laser
@@ -37,7 +39,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &4081617047494246704
+--- !u!50 &727311072369770186
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -64,7 +66,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &-5399333366429169508
+--- !u!58 &8608878682972056634
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,12 +96,31 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
+  m_Radius: 0.5
+--- !u!114 &7701698097448152051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344752987053442058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb32de83731af44e99c7938cbe2739e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionManager
+  _frontPointOfContact: {x: 0, y: 0}
+  _pointsSpawner: {fileID: 0}
+  _pointsDirection: {fileID: -3702100693771008890}
+  _pointsMovement: {fileID: -69740241623994679}
+  _pointsData: {fileID: -5157082235297577}
+  _mirrorCollision: {fileID: 2717237247527721089}
+  _targetCollision: {fileID: 3027174105455028622}
 --- !u!114 &-69740241623994679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsMovement
   _position: {x: 0, y: 0}
-  _moveSpeed: 300
+  _moveSpeed: 200
   _direction: {x: 0, y: 0}
   _isMoving: 0
 --- !u!114 &-3702100693771008890
@@ -128,21 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f38381ec523bb4697a58034f1961b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsDirection
-  _pointsMovement: {fileID: 0}
---- !u!114 &-3435663281317396701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7344752987053442058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebed10257897bcb4e970cbddbb804b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PointsCollision
-  _pointsSpawner: {fileID: 0}
-  _frontPointOfContact: {x: 0, y: 0}
+  _pointsMovement: {fileID: -69740241623994679}
 --- !u!114 &-5157082235297577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +163,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsData
   _pointIndex: 
+--- !u!114 &2717237247527721089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344752987053442058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0518886c0a0d65d438d379f260d1ae6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MirrorCollision
+  _collisionManager: {fileID: 7701698097448152051}
+--- !u!114 &3027174105455028622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344752987053442058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3324353ce2ce684a811159c0800af83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetCollision
+  _collisionManager: {fileID: 7701698097448152051}
+  _pointsMovement: {fileID: -69740241623994679}

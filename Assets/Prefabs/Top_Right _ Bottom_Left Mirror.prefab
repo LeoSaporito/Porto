@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2077506760768250521}
   - component: {fileID: -7742192910407183455}
   - component: {fileID: 7018210431965786167}
-  - component: {fileID: 5876448073754320393}
+  - component: {fileID: -4001700861359372618}
   m_Layer: 0
   m_Name: Top_Right _ Bottom_Left Mirror
   m_TagString: Mirror
@@ -174,7 +174,7 @@ PolygonCollider2D:
       - {x: 4, y: 3.5}
       - {x: 4, y: 4}
   m_UseDelaunayMesh: 1
---- !u!114 &5876448073754320393
+--- !u!114 &-4001700861359372618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4104555759757751897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0518886c0a0d65d438d379f260d1ae6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 68c76381a5abb934f99697890d6db037, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MirrorCollision
+  m_EditorClassIdentifier: Assembly-CSharp::MirrorData
   _angleType: 'Top/Right : Bottom/Left'

@@ -3,10 +3,6 @@ using UnityEngine;
 public class PointsDirection : MonoBehaviour
 {
     [SerializeField] private PointsMovement _pointsMovement;
-    private void Start()
-    {
-        _pointsMovement = GetComponent<PointsMovement>();
-    }
     public void ChangeDirection(string _angleType)
     {
         switch (_angleType)
