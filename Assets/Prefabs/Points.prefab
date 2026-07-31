@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 727311072369770186}
   - component: {fileID: 8608878682972056634}
   - component: {fileID: 7701698097448152051}
+  - component: {fileID: -2818705676868941787}
   - component: {fileID: -69740241623994679}
   - component: {fileID: -3702100693771008890}
   - component: {fileID: -5157082235297577}
@@ -99,7 +100,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.025
 --- !u!114 &7701698097448152051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +118,23 @@ MonoBehaviour:
   _pointsDirection: {fileID: -3702100693771008890}
   _pointsMovement: {fileID: -69740241623994679}
   _pointsData: {fileID: -5157082235297577}
+--- !u!114 &-2818705676868941787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7344752987053442058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebed10257897bcb4e970cbddbb804b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsCollision
+  _pointsSpawner: {fileID: 0}
+  _frontPointOfContact: {x: 0, y: 0}
+  _pointsDirection: {fileID: 0}
+  _pointsMovement: {fileID: 0}
+  _pointsData: {fileID: 0}
 --- !u!114 &-69740241623994679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsMovement
   _position: {x: 0, y: 0}
-  _moveSpeed: 200
+  _moveSpeed: 30
   _direction: {x: 0, y: 0}
   _isMoving: 0
 --- !u!114 &-3702100693771008890

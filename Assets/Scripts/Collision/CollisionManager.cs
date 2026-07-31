@@ -6,7 +6,7 @@ public class CollisionManager : MonoBehaviour
     
     [Header("Scripts")]
     [Header("Hierarchy")]
-    [SerializeField] private PointsSpawner _pointsSpawner;
+    [SerializeField] public PointsSpawner _pointsSpawner;
 
     [Header("Points Data")]
     [SerializeField] private PointsDirection _pointsDirection;
@@ -33,9 +33,9 @@ public class CollisionManager : MonoBehaviour
 
         if (_hitObj.CompareTag("Target"))
         {
-            TargetManager _targetManager = _hitObj.GetComponent<TargetManager>();
+            PointsCollision _pointsCollision = GetComponent<PointsCollision>();
 
-            _targetManager.TargetHit(this);
+            _pointsCollision.Collide();
         }
     }
     public PointsSpawner GetPointsSpawner()

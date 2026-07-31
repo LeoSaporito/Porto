@@ -10,7 +10,6 @@ public class LineRendererManager : MonoBehaviour
 
     [SerializeField] private float _frontDelay;
     [SerializeField] private float _rearDelay;
-
     private void Start()
     {
         Activate();

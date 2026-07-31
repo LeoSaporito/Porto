@@ -6,8 +6,6 @@ public class GridSpawner : MonoBehaviour
     [SerializeField] private GameObject _gridPrefab;
     [SerializeField] private GridManager _gridManager;
 
-    [SerializeField] public int _yGridSize;
-
     [SerializeField] private float xSpacing;
     [SerializeField] private float ySpacing;
 
@@ -17,6 +15,8 @@ public class GridSpawner : MonoBehaviour
     public List<GameObject> _gridCells = new List<GameObject>();
     public void CreateGrid()
     {
+        int _yGridSize = _gridManager._yGridSize;
+
         for (int x = 0; x < _gridManager._xGridSize; x++)
         {
             for (int y = 1; y < _yGridSize; y++)

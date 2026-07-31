@@ -92,7 +92,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5
+        value: 0.05
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   _pointsSpawner: {fileID: -8379818418298328015}
   _pointsList: []
   _frontDelay: 0
-  _rearDelay: 0.05
+  _rearDelay: 0.025
 --- !u!114 &-8379818418298328015
 MonoBehaviour:
   m_ObjectHideFlags: 0

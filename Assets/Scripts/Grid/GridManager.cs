@@ -4,6 +4,7 @@ public class GridManager : MonoBehaviour
 {
     [SerializeField] private GridSpawner _gridSpawner;
     [SerializeField] public int _xGridSize;
+    [SerializeField] public int _yGridSize;
 
     private void Start()
     {
