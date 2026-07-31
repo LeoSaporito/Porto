@@ -4,15 +4,24 @@ using UnityEngine;
 public class MirrorCollision : MonoBehaviour
 {
     [SerializeField] private CollisionManager _collisionManager;
-    public void MirrorCollider(GameObject _hitObj)
+    public void InitalizeCollisionManager(CollisionManager _collisionManagerScript)
     {
-        MirrorData _mirrorData = _hitObj.GetComponent<MirrorData>();
+        _collisionManager = _collisionManagerScript;
+    }
+    public void MirrorHit(CollisionManager _collisionManagerScript)
+    {
+        InitalizeCollisionManager(_collisionManagerScript);
+        MirrorRicochet();
+    }
+    public void MirrorRicochet()
+    {
+        MirrorData _mirrorData = GetComponent<MirrorData>();
 
         _collisionManager.GetPointsDirection().ChangeDirection(_mirrorData.GetAngleType());
 
         if (_collisionManager.GetPointsData()._pointIndex == "front")
         {
-            _collisionManager.GetPointsSpawner().SpawnNewPoint(this.transform.position);
+            _collisionManager.GetPointsSpawner().SpawnNewPoint(_collisionManager.transform.position);
         }
         else if (_collisionManager.GetPointsData()._pointIndex == "rear")
         {

@@ -15,8 +15,6 @@ GameObject:
   - component: {fileID: -69740241623994679}
   - component: {fileID: -3702100693771008890}
   - component: {fileID: -5157082235297577}
-  - component: {fileID: 2717237247527721089}
-  - component: {fileID: 3027174105455028622}
   m_Layer: 0
   m_Name: Points
   m_TagString: Laser
@@ -119,8 +117,6 @@ MonoBehaviour:
   _pointsDirection: {fileID: -3702100693771008890}
   _pointsMovement: {fileID: -69740241623994679}
   _pointsData: {fileID: -5157082235297577}
-  _mirrorCollision: {fileID: 2717237247527721089}
-  _targetCollision: {fileID: 3027174105455028622}
 --- !u!114 &-69740241623994679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,30 +159,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsData
   _pointIndex: 
---- !u!114 &2717237247527721089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7344752987053442058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0518886c0a0d65d438d379f260d1ae6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MirrorCollision
-  _collisionManager: {fileID: 7701698097448152051}
---- !u!114 &3027174105455028622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7344752987053442058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3324353ce2ce684a811159c0800af83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TargetCollision
-  _collisionManager: {fileID: 7701698097448152051}
-  _pointsMovement: {fileID: -69740241623994679}

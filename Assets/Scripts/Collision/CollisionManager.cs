@@ -8,14 +8,10 @@ public class CollisionManager : MonoBehaviour
     [Header("Hierarchy")]
     [SerializeField] private PointsSpawner _pointsSpawner;
 
-    [Header("Data")]
+    [Header("Points Data")]
     [SerializeField] private PointsDirection _pointsDirection;
     [SerializeField] private PointsMovement _pointsMovement;
-    [SerializeField] private PointsData _pointsData;
-
-    [Header("Collisions")]
-    [SerializeField] private MirrorCollision _mirrorCollision;
-    [SerializeField] private TargetCollision _targetCollision;
+    [SerializeField] private PointsData _pointsData; 
     public void InitalizePointsSpawner(PointsSpawner _pointsSpawnerVar)
     {
         _pointsSpawner = _pointsSpawnerVar;
@@ -26,11 +22,20 @@ public class CollisionManager : MonoBehaviour
 
         if (_hitObj.CompareTag("Mirror"))
         {
-            _mirrorCollision.MirrorCollider(_hitObj);
+            MirrorCollision _mirrorCollision = _hitObj.GetComponent<MirrorCollision>();
+
+            _mirrorCollision.MirrorHit(this);
         }
-        else if (_hitObj.CompareTag("Target"))
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        GameObject _hitObj = collision.gameObject;
+
+        if (_hitObj.CompareTag("Target"))
         {
-            _targetCollision.TargetCollider(_hitObj);
+            TargetManager _targetManager = _hitObj.GetComponent<TargetManager>();
+
+            _targetManager.TargetHit(this);
         }
     }
     public PointsSpawner GetPointsSpawner()
