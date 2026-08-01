@@ -25,7 +25,7 @@ public class CollisionManager : MonoBehaviour
             MirrorCollision _mirrorCollision = _hitObj.GetComponent<MirrorCollision>();
 
             _mirrorCollision.MirrorHit(this);
-        }
+        }        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -33,9 +33,10 @@ public class CollisionManager : MonoBehaviour
 
         if (_hitObj.CompareTag("Target"))
         {
-            PointsCollision _pointsCollision = GetComponent<PointsCollision>();
+            TargetManager _targetManager = _hitObj.GetComponent<TargetManager>();
 
-            _pointsCollision.Collide();
+            _targetManager.InitalizeCollisionManager(this);
+            _targetManager.TargetHit();
         }
     }
     public PointsSpawner GetPointsSpawner()

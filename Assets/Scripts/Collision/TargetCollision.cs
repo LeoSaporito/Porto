@@ -37,28 +37,23 @@ public class TargetCollision : MonoBehaviour
         Vector2 _frontPointPosition = _lineRenderer.GetPosition(0);
         Vector2 _rearPointPosition = _lineRenderer.GetPosition(_lineRenderer.positionCount - 1);
 
-        //debug
+        /*debug
         print(_targetCenter);
         print(_frontPointPosition);
-        print(_rearPointPosition);
-
-        //if the point is halfway between the bottom and top of the target (center line from top to bottom)
-        //collide with the target            
-
-        //when front point collides, stop point movement
-        //^^^
-        // --> if the y position of the laser is either the same, or greater than the y position of the target
-        // (input logic)
-        // --> else if the y position of the laser is either the same or less than the y position of the target
-        // (input logic)
+        print(_rearPointPosition);*/
+        /*  if the point is halfway between the bottom and top of the target(center line from top to bottom)
+         *  collide with the target
+         *  when front point collides, stop point movement
+         *  --> if the y position of the laser is either the same, or greater than the y position of the target
+         *  (input logic)
+         *  --> else if the y position of the laser is either the same or less than the y position of the target
+         *  (input logic) */
         FrontPointCheck(_frontPointPosition.x, _targetCenter.x, _direction);
-
-        // --> when rear point collides, destroy the laser && spawn a hitmarker
-        //^^^
-        // --> if the y position of the laser is either the same, or greater than the y position of the target
-        // (input logic)
-        // --> else if the y position of the laser is either the same or less than the y position of the target
-        // (input logic)
+        /*  --> when rear point collides, destroy the laser && spawn a hitmarker
+         *  --> if the y position of the laser is either the same, or greater than the y position of the target
+         *  (input logic)
+         *  --> else if the y position of the laser is either the same or less than the y position of the target
+         *  (input logic) */
         RearPointCheck(_frontPointPosition.x, _targetCenter.x, _direction, _movementAxis);
     }
     public void VerticalCollision(float _direction, string _movementAxis)
@@ -73,28 +68,23 @@ public class TargetCollision : MonoBehaviour
         Vector2 _frontPointPosition = _lineRenderer.GetPosition(0);
         Vector2 _rearPointPosition = _lineRenderer.GetPosition(_lineRenderer.positionCount - 1);
 
-        //debug
+        /*debug
         print(_targetCenter);
         print(_frontPointPosition);
-        print(_rearPointPosition);
-
-        //if the point is halfway between the bottom and top of the target (center line from top to bottom)
-        //collide with the target            
-
-        //when front point collides, stop point movement
-        //^^^
-        // --> if the y position of the laser is either the same, or greater than the y position of the target
-        // (input logic)
-        // --> else if the y position of the laser is either the same or less than the y position of the target
-        // (input logic)
+        print(_rearPointPosition);*/
+        /*  if the point is halfway between the bottom and top of the target(center line from top to bottom)
+         *  collide with the target
+         *  when front point collides, stop point movement
+         *  --> if the y position of the laser is either the same, or greater than the y position of the target
+         *  (input logic)
+         *  --> else if the y position of the laser is either the same or less than the y position of the target
+         *  (input logic) */
         FrontPointCheck(_frontPointPosition.y, _targetCenter.y, _direction);
-
-        // --> when rear point collides, destroy the laser && spawn a hitmarker
-        //^^^
-        // --> if the y position of the laser is either the same, or greater than the y position of the target
-        // (input logic)
-        // --> else if the y position of the laser is either the same or less than the y position of the target
-        // (input logic)
+        /*  --> when rear point collides, destroy the laser && spawn a hitmarker
+         *  --> if the y position of the laser is either the same, or greater than the y position of the target
+         *  (input logic)
+         *  --> else if the y position of the laser is either the same or less than the y position of the target
+         *  (input logic) */
         RearPointCheck(_frontPointPosition.y, _targetCenter.y, _direction, _movementAxis);
     }
     private void FrontPointCheck(float _frontPointPosition, float _targetCenter, float _direction)
@@ -131,16 +121,16 @@ public class TargetCollision : MonoBehaviour
     }
     private void SpawnHitmarker(string _movementAxis, float _targetCenter)
     {
-        _targetManager = GetComponent<TargetManager>();
+        //_targetManager = GetComponent<TargetManager>();
 
-        if (_movementAxis == "Vertical")
-        {
-            _targetManager.SpawnHitmarker(new Vector2(_collisionManager.transform.position.x, _targetCenter));
-        }
-        else if (_movementAxis == "Horizontal")
-        {
-            _targetManager.SpawnHitmarker(new Vector2(_targetCenter, _collisionManager.transform.position.y));
-        }
+        //if (_movementAxis == "Vertical")
+        //{
+        //    _targetManager.SpawnHitmarker(new Vector2(_collisionManager.transform.position.x, _targetCenter));
+        //}
+        //else if (_movementAxis == "Horizontal")
+        //{
+        //    _targetManager.SpawnHitmarker(new Vector2(_targetCenter, _collisionManager.transform.position.y));
+        //}
     }
 }
 

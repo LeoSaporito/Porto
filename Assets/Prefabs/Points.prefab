@@ -130,11 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebed10257897bcb4e970cbddbb804b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsCollision
-  _pointsSpawner: {fileID: 0}
-  _frontPointOfContact: {x: 0, y: 0}
-  _pointsDirection: {fileID: 0}
-  _pointsMovement: {fileID: 0}
-  _pointsData: {fileID: 0}
+  _collisionManager: {fileID: 7701698097448152051}
+  _hitMarkerPrefab: {fileID: 6854466717633635599, guid: ae2cccb0a095c204d960b44fed632e0e, type: 3}
 --- !u!114 &-69740241623994679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointsMovement
   _position: {x: 0, y: 0}
-  _moveSpeed: 30
+  _moveSpeed: 15
   _direction: {x: 0, y: 0}
   _isMoving: 0
 --- !u!114 &-3702100693771008890

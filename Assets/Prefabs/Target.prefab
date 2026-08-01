@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8395668654158775085}
   - component: {fileID: 2446513513153925263}
   - component: {fileID: 1591571359564824892}
-  - component: {fileID: 3375645031993078265}
   m_Layer: 0
   m_Name: Target
   m_TagString: Target
@@ -124,12 +123,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 4
+  m_Radius: 0.32
 --- !u!114 &1591571359564824892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,18 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b236df73c392bcd48b66c2e402cd243e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetManager
-  _hitMarkerPrefab: {fileID: 6854466717633635599, guid: ae2cccb0a095c204d960b44fed632e0e, type: 3}
---- !u!114 &3375645031993078265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 359985312901435812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3324353ce2ce684a811159c0800af83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TargetCollision
   _collisionManager: {fileID: 0}
-  _targetManager: {fileID: 1591571359564824892}
+  _tolerance: 0.075

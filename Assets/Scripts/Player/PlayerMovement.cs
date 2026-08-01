@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
+    [SerializeField] private TilemapRenderer _playerBox;
 
     [SerializeField] private Vector2 _position;
     [SerializeField] private float _moveSpeed;
+
+    [SerializeField] private float _padding;
+    
     public void MovePlayer(GameObject objOne, GameObject objTwo)
     {
         Vector2 _objOnePosition = objOne.transform.position;
@@ -25,8 +30,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _position = transform.position;
 
-        _position.x += _moveSpeed * _inputManager._directionalInput.x * Time.deltaTime;
+        _position.x = Mathf.Clamp(transform.position.x, _playerBox.bounds.min.x + _padding, _playerBox.bounds.max.x - _padding);
 
+        _position.x += _moveSpeed * _inputManager._directionalInput.x * Time.deltaTime;
+        
         transform.position = _position;
     }
 }

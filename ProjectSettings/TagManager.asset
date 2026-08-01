@@ -8,6 +8,8 @@ TagManager:
   - Laser
   - Mirror
   - Target
+  - Out of Bounds
+  - Player Box
   layers:
   - Default
   - TransparentFX

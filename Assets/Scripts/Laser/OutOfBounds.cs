@@ -8,7 +8,9 @@ public class OutOfBounds : MonoBehaviour
 
         if (_hitObj.CompareTag("Laser"))
         {
-            //_hitObj._pointSpawner.
+            PointsCollision _pointsCollision = _hitObj.GetComponent<PointsCollision>();
+
+            _pointsCollision.Collide();
         }
     }
 }
