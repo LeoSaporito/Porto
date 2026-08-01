@@ -25,7 +25,13 @@ public class CollisionManager : MonoBehaviour
             MirrorCollision _mirrorCollision = _hitObj.GetComponent<MirrorCollision>();
 
             _mirrorCollision.MirrorHit(this);
-        }        
+        }
+        else if (_hitObj.CompareTag("Walls"))
+        {
+            PointsCollision _pointsCollision = GetComponent<PointsCollision>();
+
+            _pointsCollision.Collide();
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
