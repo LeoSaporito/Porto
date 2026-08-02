@@ -1823,7 +1823,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _playerMovement: {fileID: 710181762}
-  _gridManager: {fileID: 1524461123}
+  _gridManager: {fileID: 0}
 --- !u!4 &503537575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5872938446253273831, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
@@ -2296,57 +2296,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734491660}
   m_CullTransparentMesh: 1
---- !u!1 &744887422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 744887423}
-  - component: {fileID: 744887424}
-  m_Layer: 0
-  m_Name: Grid Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &744887423
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744887422}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1524461121}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &744887424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744887422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e62e098c1816024d8ebcbf391ad6a62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GridSpawner
-  _gridPrefab: {fileID: 8630685191432232565, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
-  _gridManager: {fileID: 1524461123}
-  xSpacing: 12
-  ySpacing: 12
-  xOffset: -42
-  yOffset: -30
-  _gridCells: []
 --- !u!4 &794555558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5872938446253273831, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
@@ -2848,7 +2797,7 @@ GameObject:
   - component: {fileID: 1078490493}
   - component: {fileID: 1078490496}
   m_Layer: 5
-  m_Name: Right/Up Mirror button
+  m_Name: BottomRight/TopLeft Mirror button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2917,7 +2866,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1078490494}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1078490496}
+        m_TargetAssemblyTypeName: MirrorButtons, Assembly-CSharp
+        m_MethodName: TopLeftToBottomRightMirror
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1078490494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2969,6 +2930,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MirrorButtons
   _mirrorSelected: 0
+  _itemSelectedPrefab: {fileID: 8630685191432232565, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
+  _mousePosition: {x: 0, y: 0}
+  _item: TopLeftToBottomRightMirror
 --- !u!1 &1101215019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3541,54 +3505,6 @@ Transform:
   - {fileID: 462317916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1524461120
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1524461121}
-  - component: {fileID: 1524461123}
-  m_Layer: 0
-  m_Name: Grid Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1524461121
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524461120}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 744887423}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1524461123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524461120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94e96e98e22c5ee43bbb14ca13535a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GridManager
-  _gridSpawner: {fileID: 744887424}
-  _xGridSize: 5
-  _yGridSize: 5
 --- !u!1 &1661881844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,7 +4149,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1930763565}
         m_TargetAssemblyTypeName: MirrorButtons, Assembly-CSharp
-        m_MethodName: LeftDownMirror
+        m_MethodName: TopRightToBottomLeftMirror
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4294,6 +4210,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MirrorButtons
   _mirrorSelected: 0
+  _itemSelectedPrefab: {fileID: 8630685191432232565, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
+  _mousePosition: {x: 0, y: 0}
+  _item: TopRightToBottomLeftMirror
 --- !u!1001 &1969269923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4750,7 +4669,6 @@ SceneRoots:
   - {fileID: 1509503410}
   - {fileID: 710181754}
   - {fileID: 232295303}
-  - {fileID: 1524461121}
   - {fileID: 1891046915}
   - {fileID: 430659856}
   - {fileID: 1484871513294211990}
