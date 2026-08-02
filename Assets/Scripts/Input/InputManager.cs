@@ -4,15 +4,15 @@ using UnityEngine.Windows;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private ClickingManager _clickingManager;
     [SerializeField] private LaserManager _laserManager;
+    [SerializeField] private PlayerManager _playerManager;
 
     [SerializeField] public Vector2 _directionalInput;
     public void OnLeftClick(InputAction.CallbackContext context)
     {
         if (context.canceled)
         {
-            _clickingManager.Clicked();
+            _playerManager.PlaceItem();
         }
     }
     public void OnShoot(InputAction.CallbackContext context)

@@ -331,6 +331,63 @@ Transform:
   - {fileID: 892864701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &266528182
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.39365
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.54545
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679057449689456141, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343776989567557720, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+      propertyPath: m_Name
+      value: GhostItem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
 --- !u!1001 &282041213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1726,6 +1783,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1774315006}
     m_Modifications:
+    - target: {fileID: -2795011262032542963, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2795011262032542963, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2795011262032542963, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -2795011262032542963, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5872938446253273831, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5
@@ -1775,55 +1848,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
---- !u!1 &462317915
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 462317916}
-  - component: {fileID: 462317917}
-  m_Layer: 0
-  m_Name: Click Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &462317916
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462317915}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1509503410}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &462317917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462317915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 905ddc5f4496b184e8a7ccc072320f1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ClickingManager
-  _clickedObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  _playerMovement: {fileID: 710181762}
-  _gridManager: {fileID: 0}
 --- !u!4 &503537575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5872938446253273831, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
@@ -2063,6 +2087,7 @@ GameObject:
   - component: {fileID: 710181764}
   - component: {fileID: 710181762}
   - component: {fileID: 710181763}
+  - component: {fileID: 710181765}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2187,6 +2212,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c0aa3c94939964985ea015822bb296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  _itemToPlace: {fileID: 0}
+  _playerMouse: {fileID: 710181765}
+  _ghostItem: {fileID: 1315173623}
+--- !u!114 &710181765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710181752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba0394945c6caa4ebd443520930d8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMouse
+  _item: 
+  _itemSelected: 0
+  _mousePosition: {x: 0, y: 0}
+  _ghostItemPrefab: {fileID: 1315173622}
+  _ghostItem: {fileID: 1315173623}
 --- !u!4 &731996296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5872938446253273831, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
@@ -2797,7 +2842,7 @@ GameObject:
   - component: {fileID: 1078490493}
   - component: {fileID: 1078490496}
   m_Layer: 5
-  m_Name: BottomRight/TopLeft Mirror button
+  m_Name: Top Left To Bottom Right Mirror button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2868,7 +2913,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1078490496}
-        m_TargetAssemblyTypeName: MirrorButtons, Assembly-CSharp
+        m_TargetAssemblyTypeName: ItemSelectedButton, Assembly-CSharp
         m_MethodName: TopLeftToBottomRightMirror
         m_Mode: 1
         m_Arguments:
@@ -2926,13 +2971,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078490491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55841172d2bbca84ea6b5045a9131745, type: 3}
+  m_Script: {fileID: 11500000, guid: be866be03176461429f692ca11a2606d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MirrorButtons
-  _mirrorSelected: 0
-  _itemSelectedPrefab: {fileID: 8630685191432232565, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
-  _mousePosition: {x: 0, y: 0}
-  _item: TopLeftToBottomRightMirror
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSelectedButton
+  _playerMouse: {fileID: 710181765}
+  _playerManager: {fileID: 710181764}
+  _topLeftToBottomRightPrefab: {fileID: 8052583857294562917, guid: 8cca1a0de83079b4a80a048e67c86958, type: 3}
+  _topRightToBottomLeftPrefab: {fileID: 4104555759757751897, guid: 22b2787954c65b645b364e932b01214f, type: 3}
 --- !u!1 &1101215019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,6 +3144,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5872938446253273831, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
   m_PrefabInstance: {fileID: 1146630288}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1315173622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7343776989567557720, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+  m_PrefabInstance: {fileID: 266528182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1315173623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 254421735409899996, guid: 9857e5266e5277246a54a389b13cbc8d, type: 3}
+  m_PrefabInstance: {fileID: 266528182}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315173622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c3bdcb3f2827741b8ae12877b67ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostItem
 --- !u!1 &1320811131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,8 +3429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d4b64ebd951324082d791a896a8121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
-  _clickingManager: {fileID: 462317917}
   _laserManager: {fileID: 232295302}
+  _playerManager: {fileID: 710181764}
   _directionalInput: {x: 0, y: 0}
 --- !u!114 &1509503409
 MonoBehaviour:
@@ -3501,8 +3562,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 462317916}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1661881844
@@ -4077,7 +4137,7 @@ GameObject:
   - component: {fileID: 1930763562}
   - component: {fileID: 1930763565}
   m_Layer: 5
-  m_Name: BottomLeft/TopRight Mirror button
+  m_Name: Top Right To Bottom Left Mirror button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4148,7 +4208,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1930763565}
-        m_TargetAssemblyTypeName: MirrorButtons, Assembly-CSharp
+        m_TargetAssemblyTypeName: ItemSelectedButton, Assembly-CSharp
         m_MethodName: TopRightToBottomLeftMirror
         m_Mode: 1
         m_Arguments:
@@ -4206,13 +4266,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1930763560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55841172d2bbca84ea6b5045a9131745, type: 3}
+  m_Script: {fileID: 11500000, guid: be866be03176461429f692ca11a2606d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MirrorButtons
-  _mirrorSelected: 0
-  _itemSelectedPrefab: {fileID: 8630685191432232565, guid: 8ca4b0598efd8674fa844a71f6d3faab, type: 3}
-  _mousePosition: {x: 0, y: 0}
-  _item: TopRightToBottomLeftMirror
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSelectedButton
+  _playerMouse: {fileID: 710181765}
+  _playerManager: {fileID: 710181764}
+  _topLeftToBottomRightPrefab: {fileID: 8052583857294562917, guid: 8cca1a0de83079b4a80a048e67c86958, type: 3}
+  _topRightToBottomLeftPrefab: {fileID: 4104555759757751897, guid: 22b2787954c65b645b364e932b01214f, type: 3}
 --- !u!1001 &1969269923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4676,3 +4736,4 @@ SceneRoots:
   - {fileID: 1320811135}
   - {fileID: 1661881847}
   - {fileID: 1774315006}
+  - {fileID: 266528182}
