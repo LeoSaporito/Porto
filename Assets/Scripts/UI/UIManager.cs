@@ -1,16 +1,27 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TextMeshProUGUI _topLeftToBottomRightText;
+    [SerializeField] private TextMeshProUGUI _topRightToBottomLeftText;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private PlayerItems _playerItems;
+
+    private void Start()
     {
-        
+        _topLeftToBottomRightText.text = _playerItems._numOfTopLeftToBottomRight + ":";
+        _topRightToBottomLeftText.text = _playerItems._numOfTopRightToBottomLeft + ":";        
+    }
+    public void ChangeItemsValue(string _itemName, int _itemValue)
+    {
+        if (_itemName == "TopLeftToBottomRightMirror")
+        {
+            _topLeftToBottomRightText.text = _itemValue + ":";
+        }
+        else if (_itemName == "TopRightToBottomLeftMirror")
+        {
+            _topRightToBottomLeftText.text = _itemValue + ":";
+        }
     }
 }

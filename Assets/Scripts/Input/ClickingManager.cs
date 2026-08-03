@@ -65,6 +65,6 @@ public class ClickingManager : MonoBehaviour
     }
     private void MovePlayer()
     {
-        _playerMovement.MovePlayer(_clickedObjects[0], _clickedObjects[1]);
+        //_playerMovement.MovePlayer(_clickedObjects[0], _clickedObjects[1]);
     }
 }

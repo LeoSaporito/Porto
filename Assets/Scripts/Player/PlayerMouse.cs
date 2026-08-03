@@ -4,29 +4,28 @@ using static UnityEditor.Progress;
 
 public class PlayerMouse : MonoBehaviour
 {
-    [SerializeField] public string _item;
+    [SerializeField] public string _itemName;
     [SerializeField] public bool _itemSelected;
     [SerializeField] private Vector2 _mousePosition;
 
+    [Header("GhostItem")]
     [SerializeField] private GameObject _ghostItemPrefab;
     [SerializeField] private GhostItem _ghostItem;
-    private void Start()
+    public void InitializeItems(string _item)
     {
-        _ghostItemPrefab.SetActive(false);
+        _itemName = _item;
     }
-    private void FixedUpdate()
-    {
-        if (!_itemSelected) { return; }
-        else
-        {
-            MousePosition();
-        }
-    }
-    public void MousePosition()
+    public Vector2 MousePosition()
     {
         _mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        RaycastHit2D _hit = Physics2D.Raycast(_mousePosition, Vector2.zero);
+        return _mousePosition;
+    }
+    private void ShowGhostItem()
+    {
+        MousePosition();
+
+        RaycastHit2D _hit = Physics2D.Raycast(MousePosition(), Vector2.zero);
 
         if (_hit.collider != null)
         {
@@ -34,10 +33,20 @@ public class PlayerMouse : MonoBehaviour
 
             if (_hitObj.CompareTag("Grid Square"))
             {
-                _ghostItemPrefab.SetActive(true);
-                _ghostItemPrefab.transform.position = _hitObj.transform.position;
+                GridSquare _gridSquare = _hitObj.GetComponent<GridSquare>();
 
-                _ghostItem.TurnOnItem(_item);
+                if (_gridSquare._itemPlaced != null)
+                {
+                    _ghostItemPrefab.SetActive(false);
+                    return;
+                }
+                else if (_gridSquare._itemPlaced == null)
+                {
+                    _ghostItemPrefab.SetActive(true);
+                    _ghostItemPrefab.transform.position = _hitObj.transform.position;
+
+                    _ghostItem.TurnOnItem(_itemName);
+                }
             }
         }
         else
@@ -45,5 +54,19 @@ public class PlayerMouse : MonoBehaviour
             _ghostItemPrefab.SetActive(false);
             _ghostItem.TurnOffItem();
         }
+    }
+    private void FixedUpdate()
+    {
+        if (!_itemSelected) { return; }
+        else
+        {
+            ShowGhostItem();
+        }
+    }
+    public void ResetItem()
+    {
+        _ghostItemPrefab.SetActive(false);
+        _itemName = null;
+        _itemSelected = false;
     }
 }

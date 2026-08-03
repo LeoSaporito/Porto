@@ -3,7 +3,10 @@ using UnityEngine;
 public class GhostItem : MonoBehaviour
 {
     [SerializeField] private Sprite _topLeftToBottomRightMirror, _topRightToBottomLeftMirror;
-
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     public void TurnOnItem(string _itemName)
     {
         switch (_itemName)

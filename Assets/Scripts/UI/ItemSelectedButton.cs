@@ -1,22 +1,23 @@
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ItemSelectedButton : MonoBehaviour
 {
-    [SerializeField] private PlayerMouse _playerMouse;
     [SerializeField] private PlayerManager _playerManager;
 
     [SerializeField] private GameObject _topLeftToBottomRightPrefab;
     [SerializeField] private GameObject _topRightToBottomLeftPrefab;
     public void TopLeftToBottomRightMirror()
     {
-        _playerManager._itemToPlace = _topLeftToBottomRightPrefab;
-        _playerMouse._item = "TopLeftToBottomRightMirror";
-        _playerMouse._itemSelected = true;
+        _playerManager.ButtonSelected("TopLeftToBottomRightMirror", _topLeftToBottomRightPrefab);
     }
     public void TopRightToBottomLeftMirror()
     {
-        _playerManager._itemToPlace = _topRightToBottomLeftPrefab;
-        _playerMouse._item = "TopRightToBottomLeftMirror";
-        _playerMouse._itemSelected = true;
+        _playerManager.ButtonSelected("TopRightToBottomLeftMirror", _topRightToBottomLeftPrefab);
+    }
+    public void Delete()
+    {
+        _playerManager.ButtonSelected(null, null);
+        _playerManager._deleteItem = true;
     }
 }

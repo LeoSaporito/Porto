@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6556190057086329524, guid: 5a2540e3fc1893d48829e6b95f5af23a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MirrorCollision
   _collisionManager: {fileID: 0}
+  _isGreen: 0
 --- !u!114 &744923233313281650
 MonoBehaviour:
   m_ObjectHideFlags: 0

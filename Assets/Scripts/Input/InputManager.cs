@@ -5,14 +5,12 @@ using UnityEngine.Windows;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private LaserManager _laserManager;
-    [SerializeField] private PlayerManager _playerManager;
-
-    [SerializeField] public Vector2 _directionalInput;
+    [SerializeField] private PlayerManager _playerManager;  
     public void OnLeftClick(InputAction.CallbackContext context)
     {
         if (context.canceled)
         {
-            _playerManager.PlaceItem();
+            _playerManager.LeftClicked();
         }
     }
     public void OnShoot(InputAction.CallbackContext context)
@@ -24,6 +22,6 @@ public class InputManager : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        _directionalInput = context.ReadValue<Vector2>();
+        _playerManager._directionalInput = context.ReadValue<Vector2>();
     }
 }
