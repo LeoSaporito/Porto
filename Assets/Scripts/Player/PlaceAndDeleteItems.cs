@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -10,6 +11,10 @@ public class PlaceAndDeleteItems : MonoBehaviour
 
     [Header("UIManager")]
     [SerializeField] public UIManager _uiManager;
+
+    [Header("MirrorManager")]
+    [SerializeField] public GameObject _mirrorManagerObj;
+    [SerializeField] public MirrorManager _mirrorManager;
     public void PlaceItem(RaycastHit2D _hit)
     {
         if (_itemToPlace == null) { return; }
@@ -42,6 +47,8 @@ public class PlaceAndDeleteItems : MonoBehaviour
 
                 if (_gridSquare._itemPlaced != null)
                 {
+                    RemoveFromMirrorsList(_gridSquare._itemPlaced);
+
                     _itemName = _gridSquare._itemName;
 
                     _playerItems.Add(_itemName);
@@ -55,7 +62,7 @@ public class PlaceAndDeleteItems : MonoBehaviour
     }
     private void Item(GameObject _hitObj)
     {
-        GameObject _obj = Instantiate(_itemToPlace, _hitObj.transform.position, Quaternion.identity);
+        GameObject _obj = Instantiate(_itemToPlace, _hitObj.transform.position, Quaternion.identity, _mirrorManagerObj.transform);
 
         GridSquare _gridSquare = _hitObj.GetComponent<GridSquare>();
 
@@ -64,10 +71,26 @@ public class PlaceAndDeleteItems : MonoBehaviour
         _playerItems.Subtract(_itemName);
 
         _uiManager.ChangeItemsValue(_itemName, _playerItems.GetValue(_itemName));
+
+        AddToMirrorsList(_obj);
     }
     public void ResetSelectedItem()
     {
         _itemName = null;
         _itemToPlace = null;
+    }
+    public void AddToMirrorsList(GameObject _obj)
+    {
+        if (_obj.CompareTag("Mirror"))
+        {
+            _mirrorManager._activeMirrors.Add(_obj);
+        }
+    }
+    public void RemoveFromMirrorsList(GameObject _obj)
+    {
+        if (_obj.CompareTag("Mirror"))
+        {
+            _mirrorManager._activeMirrors.Remove(_obj);
+        }
     }
 }

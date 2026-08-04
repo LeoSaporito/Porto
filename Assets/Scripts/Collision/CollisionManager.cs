@@ -30,6 +30,8 @@ public class CollisionManager : MonoBehaviour
         {
             PointsCollision _pointsCollision = GetComponent<PointsCollision>();
 
+            ResetMirrors();
+
             _pointsCollision.Collide();
         }
     }
@@ -44,6 +46,10 @@ public class CollisionManager : MonoBehaviour
             _targetManager.InitalizeCollisionManager(this);
             _targetManager.TargetHit();
         }
+    }
+    public void ResetMirrors()
+    {
+        _pointsSpawner.ResetMirrors();
     }
     public PointsSpawner GetPointsSpawner()
     {

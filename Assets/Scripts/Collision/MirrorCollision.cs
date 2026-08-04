@@ -30,6 +30,10 @@ public class MirrorCollision : MonoBehaviour
             _collisionManager.GetPointsSpawner().DestroyVertex();
         }
     }
+    public void ResetColor()
+    {
+        GetComponent<SpriteRenderer>().color = Color.green;
+    }
     private void FlipColor()
     {
         _isGreen = !_isGreen;

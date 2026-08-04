@@ -47,7 +47,20 @@ public class TargetManager : MonoBehaviour
     }
     private void VerticalTarget(float _xDirection)
     {
+        Vector2 _frontPoint = GetFrontPoint();
+        Vector2 _rearPoint = GetRearPoint();
+
         float _xCenter = GetComponent<SpriteRenderer>().bounds.center.x;
+
+        /*//debug
+        print("y Center: " + _yCenter);
+        print("front:" + _frontPoint);
+        print("rear:" + _rearPoint);*/
+
+        if (_frontPoint.x < _xCenter + _tolerance && _frontPoint.x > _xCenter - _tolerance)
+        {
+            _collisionManager.GetComponent<PointsCollision>().Collide();
+        }
     }
     private Vector2 GetFrontPoint()
     {
