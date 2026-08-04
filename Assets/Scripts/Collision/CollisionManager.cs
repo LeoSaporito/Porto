@@ -25,7 +25,15 @@ public class CollisionManager : MonoBehaviour
             MirrorCollision _mirrorCollision = _hitObj.GetComponent<MirrorCollision>();
 
             _mirrorCollision.MirrorHit(this);
-        }        
+        }
+        else if (_hitObj.CompareTag("Walls"))
+        {
+            PointsCollision _pointsCollision = GetComponent<PointsCollision>();
+
+            ResetMirrors();
+
+            _pointsCollision.Collide();
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -38,6 +46,10 @@ public class CollisionManager : MonoBehaviour
             _targetManager.InitalizeCollisionManager(this);
             _targetManager.TargetHit();
         }
+    }
+    public void ResetMirrors()
+    {
+        _pointsSpawner.ResetMirrors();
     }
     public PointsSpawner GetPointsSpawner()
     {

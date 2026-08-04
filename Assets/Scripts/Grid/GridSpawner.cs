@@ -24,10 +24,10 @@ public class GridSpawner : MonoBehaviour
                 GameObject _gridPiece = Instantiate(_gridPrefab, new Vector3(x, y, 1), Quaternion.identity, transform);
                 GridSquare _gridSquare = _gridPiece.GetComponent<GridSquare>();
 
-                _gridSquare.SetXPosition(x);
-                _gridSquare.SetYPosition(y);
+                //_gridSquare.SetXPosition(x);
+                //_gridSquare.SetYPosition(y);
 
-                _gridSquare.SetSpacing(xSpacing, ySpacing, xOffset, yOffset);
+                //_gridSquare.SetSpacing(xSpacing, ySpacing, xOffset, yOffset);
 
                 _gridCells.Add(_gridPiece);
             }

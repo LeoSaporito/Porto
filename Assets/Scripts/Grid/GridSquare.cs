@@ -2,39 +2,17 @@ using UnityEngine;
 
 public class GridSquare : MonoBehaviour
 {
-    [SerializeField] private float xPosition;
-    [SerializeField] private float yPosition;
+    [SerializeField] public GameObject _itemPlaced;
+    [SerializeField] public string _itemName;
 
-    public void SetSpacing(float xSpacing, float ySpacing, float xOffset, float yOffset)
+    public void PlacedItem(GameObject _obj, string _name)
     {
-        float x = xPosition;
-        float y = yPosition;
-
-        x *= xSpacing;
-        y *= ySpacing;
-
-        x += xOffset;
-        y += yOffset;
-
-        transform.position = new Vector3(x, y, -1);
+        _itemPlaced = _obj;
+        _itemName = _name;
     }
-    public void SetPlayerGridSpacing(float xSpacing, float xOffset, float yPos)
+    public void DeleteItem()
     {
-        float x = xPosition;
-
-        x *= xSpacing;
-
-        x += xOffset;
-
-        transform.position = new Vector3(x, yPos, 1);
-    }
-
-    public void SetXPosition(int x)
-    {
-        xPosition = x;
-    }
-    public void SetYPosition(int y)
-    {
-        yPosition = y;
+        Destroy(_itemPlaced);
+        _itemName = null;
     }
 }

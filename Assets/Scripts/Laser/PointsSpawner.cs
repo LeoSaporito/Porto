@@ -5,6 +5,13 @@ public class PointsSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _pointsPrefab;    
     [SerializeField] private LineRendererManager _lineRendererManager;
+
+    [SerializeField] private LaserManager _laserManager;
+
+    public void InitalizeLaserManager(LaserManager _laserManagerScript)
+    {
+        _laserManager = _laserManagerScript;
+    }
     public void SpawnPoint(float _delay, string _pointIndex, Vector3 _spawnPoint)
     {
         GameObject _pointSpawned = Instantiate(_pointsPrefab, _spawnPoint, Quaternion.identity, transform);
@@ -52,6 +59,10 @@ public class PointsSpawner : MonoBehaviour
     public void DestroyLineRenderer()
     {
         _lineRendererManager.DestroyLineRenderer();
+    }
+    public void ResetMirrors()
+    {
+        _laserManager.ResetMirrors();
     }
     private List<GameObject> GetPointsList()
     {

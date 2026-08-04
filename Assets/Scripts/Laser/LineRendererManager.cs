@@ -8,8 +8,10 @@ public class LineRendererManager : MonoBehaviour
     [SerializeField] private PointsSpawner _pointsSpawner;
     [SerializeField] public List<GameObject> _pointsList = new List<GameObject>();
 
+
     [SerializeField] private float _frontDelay;
     [SerializeField] private float _rearDelay;
+
     private void Start()
     {
         Activate();
@@ -30,6 +32,6 @@ public class LineRendererManager : MonoBehaviour
     }
     public void DestroyLineRenderer()
     {
-        Destroy(gameObject);
+        Destroy(gameObject);        
     }
 }
