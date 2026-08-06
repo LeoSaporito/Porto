@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
 public class TargetManager : MonoBehaviour
 {
     [SerializeField] private CollisionManager _collisionManager;
@@ -43,6 +44,10 @@ public class TargetManager : MonoBehaviour
         if (_frontPoint.y < _yCenter + _tolerance && _frontPoint.y > _yCenter - _tolerance)
         {
             _collisionManager.GetComponent<PointsCollision>().Collide();
+            
+            //<--------------------------------->//
+            //Main menu stuff
+            UnlockedNewLevel();
         }
     }
     private void VerticalTarget(float _xDirection)
@@ -60,6 +65,10 @@ public class TargetManager : MonoBehaviour
         if (_frontPoint.x < _xCenter + _tolerance && _frontPoint.x > _xCenter - _tolerance)
         {
             _collisionManager.GetComponent<PointsCollision>().Collide();
+
+            //<--------------------------------->//
+            //Main menu stuff
+            UnlockedNewLevel();
         }
     }
     private Vector2 GetFrontPoint()
@@ -79,5 +88,18 @@ public class TargetManager : MonoBehaviour
         Vector2 _rearPointPosition = _lineRenderer.GetPosition(_lineRenderer.positionCount - 1);
 
         return _rearPointPosition;
+    }
+
+    //<------------------------------------------------------------------------------------------>//
+
+    public void UnlockedNewLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
+        {
+            PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.Save();
+
+        }
     }
 }
