@@ -34,6 +34,12 @@ public class CollisionManager : MonoBehaviour
 
             _pointsCollision.Collide();
         }
+        else if (_hitObj.CompareTag("PickUp"))
+        {
+            PickUp _pickUp = _hitObj.GetComponent<PickUp>();
+
+            _pickUp.PickedUp();
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

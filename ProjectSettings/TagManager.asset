@@ -11,6 +11,7 @@ TagManager:
   - Out of Bounds
   - Player Box
   - Walls
+  - PickUp
   layers:
   - Default
   - TransparentFX
